@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { createFaceLandmarker } from "./lib/faceLandmarker";
 import "./App.css";
+import { extractFaceFeatures } from "./lib/faceFeatures";
 
 function drawLandmarks(ctx, landmarks, width, height) {
   ctx.clearRect(0, 0, width, height);
@@ -21,6 +22,8 @@ function App() {
   const rafRef = useRef(null);
   const [status, setStatus] = useState("loading");
   const [landmarkCount, setLandmarkCount] = useState(0);
+  const [features, setFeatures] = useState(null);
+  const [features, setFeatures] = useState(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -56,6 +59,7 @@ function App() {
           if (landmarks) {
             drawLandmarks(ctx, landmarks, canvas.width, canvas.height);
             setLandmarkCount(landmarks.length);
+            setFeatures(extractFaceFeatures(landmarks));
           } else {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             setLandmarkCount(0);
@@ -88,6 +92,15 @@ function App() {
       </div>
       <div className="status-bar">
         status: {status} · landmarks: {landmarkCount}
+        {features && (
+          <>
+            {" "}
+            · jaw: {features.jawLineAngle.toFixed(2)} · eye:{" "}
+            {features.eyeAngle.toFixed(2)} · ratio:{" "}
+            {features.faceRatio.toFixed(2)} · eyeSpace:{" "}
+            {features.eyeSpacing.toFixed(2)}
+          </>
+        )}
       </div>
     </div>
   );
