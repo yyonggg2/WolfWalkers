@@ -12,6 +12,24 @@ personalized wolf face, shaped by that face's own proportions, in the film's
 hand-drawn watercolor/woodcut visual language — not a generic, one-size-fits-all
 AR mask.
 
+## Visual & interaction philosophy
+
+Most AR filters (Spider-Man webs, generic animal masks) rely on a flashy
+triggered gesture and a single static overlay. That doesn't fit the tone of
+the source material. Instead:
+
+- **Trigger:** closing your eyes and lowering your head, held for 3+ seconds
+  (echoing the soul-leaving-the-body / sleep transformation in
+  _Wolfwalkers_), rather than a hand gesture. (Stretch goal — see Build plan
+  below.)
+- **Transition:** a watercolor bloom / Celtic knotwork line tracing the face
+  outline, rather than a geometric "portal" effect. (Stretch goal.)
+- **Palette:** deep greens, ochre, moonlit blue-violet — not saturated
+  cyberpunk neon.
+- **Personalization:** the wolf's ear angle, muzzle length, and eye shape are
+  derived from the user's own facial proportions, not a fixed asset (see Art
+  approach below).
+
 ## Approach
 
 **Approach A (rule-based parametric mapping)**, confirmed over generative/AI
